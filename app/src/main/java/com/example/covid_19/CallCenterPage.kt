@@ -33,6 +33,10 @@ class CallCenterPage : AppCompatActivity() {
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
+                /*
+                    This method will remain empty since the application will never call
+                    this method
+                 */
             }
         }
         database.addValueEventListener( callListener )

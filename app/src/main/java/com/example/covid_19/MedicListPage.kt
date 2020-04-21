@@ -27,7 +27,10 @@ class MedicListPage : AppCompatActivity() {
 
         val medicListener = object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
-
+                /*
+                    This method will remain empty since the application will never call
+                    this method
+                 */
             }
 
             override fun onDataChange(p0: DataSnapshot) {

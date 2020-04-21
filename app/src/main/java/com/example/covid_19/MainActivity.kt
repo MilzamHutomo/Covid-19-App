@@ -72,7 +72,10 @@ class MainActivity : AppCompatActivity(){
             }
 
             override fun onCancelled(p0: DatabaseError) {
-
+                /*
+                    This method will remain empty since the application will never call
+                    this method
+                 */
             }
         }
         dataCovid.addValueEventListener(covidListener)
@@ -102,7 +105,10 @@ class MainActivity : AppCompatActivity(){
             }
 
             override fun onCancelled(p0: DatabaseError) {
-
+                /*
+                    This method will remain empty since the application will never call
+                    this method
+                 */
             }
         }
         dataDengue.addValueEventListener(dengueListener)

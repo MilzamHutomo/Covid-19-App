@@ -12,8 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
 class CallCenterListViewAdapter(private val listCallCenter: ArrayList<CallCenter>) :
-    RecyclerView.Adapter<CallCenterListViewAdapter.ListViewHolder>(),
-    View.OnClickListener {
+    RecyclerView.Adapter<CallCenterListViewAdapter.ListViewHolder>(){
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val callArea: TextView = itemView.findViewById(R.id.call_area)
@@ -38,11 +37,11 @@ class CallCenterListViewAdapter(private val listCallCenter: ArrayList<CallCenter
         val callCenter = listCallCenter[position]
 
         holder.callArea.text = callCenter.area
-        holder.callNumber.text = callCenter.call_center
+        holder.callNumber.text = callCenter.callCenter
         holder.callWeb.text = callCenter.website
 
         holder.btnDial.setOnClickListener {
-            val number = callCenter.call_center
+            val number = callCenter.callCenter
             val dialCallCenter = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
             holder.itemView.context.startActivity(dialCallCenter)
         }
@@ -56,7 +55,4 @@ class CallCenterListViewAdapter(private val listCallCenter: ArrayList<CallCenter
         Picasso.get().load(callCenter.imgUrl).into(holder.callIcon)
     }
 
-    override fun onClick(v: View?) {
-
-    }
 }
