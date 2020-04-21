@@ -1,6 +1,6 @@
-projectKey=covid19
+projectKey=covid19-new
 serverUrl=http://localhost:9000
 serverVersion=8.2.0.32929
-dashboardUrl=http://localhost:9000/dashboard?id=covid19
-ceTaskId=AXGbNgun0Pplnxdp1Qpp
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXGbNgun0Pplnxdp1Qpp
+dashboardUrl=http://localhost:9000/dashboard?id=covid19-new
+ceTaskId=AXGb1nPI0Pplnxdp1QtL
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXGb1nPI0Pplnxdp1QtL

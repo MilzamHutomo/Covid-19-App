@@ -37,11 +37,11 @@ class CallCenterListViewAdapter(private val listCallCenter: ArrayList<CallCenter
         val callCenter = listCallCenter[position]
 
         holder.callArea.text = callCenter.area
-        holder.callNumber.text = callCenter.callCenter
+        holder.callNumber.text = callCenter.call_center
         holder.callWeb.text = callCenter.website
 
         holder.btnDial.setOnClickListener {
-            val number = callCenter.callCenter
+            val number = callCenter.call_center
             val dialCallCenter = Intent(Intent.ACTION_DIAL, Uri.parse("tel:$number"))
             holder.itemView.context.startActivity(dialCallCenter)
         }
