@@ -53,6 +53,9 @@ class MainActivity : AppCompatActivity(){
         val covidPositif: TextView = findViewById(R.id.covid_positif)
         val covidDeath: TextView = findViewById(R.id.covid_death)
         val covidRecover: TextView = findViewById(R.id.covid_recover)
+        val covidPlusPositif: TextView = findViewById(R.id.covid_plus_positif)
+        val covidPlusRecover: TextView = findViewById(R.id.covid_plus_recover)
+        val covidPlusDeath: TextView = findViewById(R.id.covid_plus_death)
 
         val covidListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -63,11 +66,39 @@ class MainActivity : AppCompatActivity(){
 
                 var position: Int = covidData.size
                 val covid = covidData[position - 1]
+                val covidPrev = covidData[position-2]
 
                 covidDate.text = covid.date
                 covidDeath.text = covid.death
                 covidPositif.text = covid.positif
                 covidRecover.text = covid.recover
+
+                val plusPositif: Int = covid.positif.replace(".","").toInt() - covidPrev.positif.replace(".","").toInt()
+
+                covidPlusPositif.text = (when {
+                    plusPositif > 0 -> {
+                        "+ $plusPositif"
+                    }
+                    else -> "$plusPositif"
+                }).toString()
+
+                val plusRecover: Int = covid.recover.replace(".","").toInt() - covidPrev.recover.replace(".","").toInt()
+
+                covidPlusRecover.text = (when {
+                    plusRecover > 0 -> {
+                        "+ $plusRecover"
+                    }
+                    else -> "$plusRecover"
+                }).toString()
+
+                val plusDeath: Int = covid.death.replace(".","").toInt() - covidPrev.death.replace(".","").toInt()
+
+                covidPlusDeath.text = (when {
+                    plusDeath > 0 -> {
+                        "+ $plusDeath"
+                    }
+                    else -> "$plusDeath"
+                }).toString()
 
             }
 
